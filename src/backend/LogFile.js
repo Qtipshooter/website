@@ -48,8 +48,33 @@ class LogFile {
   }
 
   logReq(req) {
-    var logStr = "";
+    var timestamp = this.createTimestamp(new Date());
+    var logStr = timestamp + " [" + req.ip + "] " + req.method + ":\"" + req.originalUrl + "\"";
     this.logMsg(logStr);
+  }
+
+  createTimestamp(d) {
+    if(!(d instanceof Date)) {
+      return null;
+    }
+    var month = this.normalizeTimeLen(d.getMonth() + 1);
+    var day = this.normalizeTimeLen(d.getDate());
+    var year = d.getFullYear();
+    var hours = this.normalizeTimeLen(d.getHours());
+    var minutes = this.normalizeTimeLen(d.getMinutes());
+    var seconds = this.normalizeTimeLen(d.getSeconds());
+
+    return `[${month}/${day}/${year} ${hours}:${minutes}:${seconds}]`;
+  }
+
+  normalizeTimeLen(n) {
+    if(!(typeof(n) === 'number')) {
+     return n;
+    }
+    if(n < 10) {
+      return "0" + n.toString();
+    }
+    return n;
   }
 }
 
