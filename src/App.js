@@ -1,3 +1,7 @@
+//App.js
+//Quinton Graham 2023
+//Entry point for the website
+
 import React from "react";
 import ReactDOM from "react-dom/client";
 import {BrowserRouter, Routes, Route} from "react-router-dom";

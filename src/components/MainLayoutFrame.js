@@ -1,3 +1,8 @@
+//MainLayoutFrame.js
+//Quinton Graham 2023
+//Defines the header, footer, and where the outlet for
+//remaining content is
+
 import React from "react";
 import {Outlet} from "react-router-dom";
 

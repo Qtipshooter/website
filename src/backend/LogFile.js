@@ -1,5 +1,5 @@
 //LogFile.js
-//Quinton Graham
+//Quinton Graham 2023
 //Manages the logs for the program
 
 const fs = require('fs')
